@@ -1,19 +1,25 @@
 import { initializeApp, getApp, getApps } from "firebase/app";
 import { getAuth } from "firebase/auth";
 import { getFirestore } from "firebase/firestore";
+import dotenv from "dotenv";
 
 const firebaseConfig = {
-	apiKey: process.env.NEXT_PUBLIC_FIREBASE_API_KEY,
-	authDomain: process.env.NEXT_PUBLIC_FIREBASE_AUTH_DOMAIN,
-	projectId: process.env.NEXT_PUBLIC_FIREBASE_PROJECT_ID,
-	storageBucket: process.env.NEXT_PUBLIC_FIREBASE_STORAGE_BUCKET,
-	messagingSenderId: process.env.NEXT_PUBLIC_FIREBASE_MESSAGING_SENDER_ID,
-	appId: process.env.NEXT_PUBLIC_FIREBASE_APP_ID,
+	apiKey:"AIzaSyCcTc1hrT2e7JSc3d5JbEMUSgbJQ3AzmlY",
+	authDomain:"leetcode-6b75e.firebaseapp.com",
+	projectId:"leetcode-6b75e",
+	storageBucket:"leetcode-6b75e.appspot.com",
+	messagingSenderId:"217390964713",
+	appId:"1:217390964713:web:c2a11015906b9605bdf578",
+	
+	
 };
 
-const app = !getApps.length ? initializeApp(firebaseConfig) : getApp();
-
+// const app = !getApps.length ? initializeApp(firebaseConfig,"leetcode") : getApp("leetcode");
+const app = initializeApp(firebaseConfig);
 const auth = getAuth(app);
 const firestore = getFirestore(app);
+// firestore.enablePersistence();
 
 export { auth, firestore, app };
+
+

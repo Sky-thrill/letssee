@@ -21,15 +21,20 @@ const Login: React.FC<LoginProps> = () => {
 
 	const handleLogin = async (e: React.FormEvent<HTMLFormElement>) => {
 		e.preventDefault();
+		
 		if (!inputs.email || !inputs.password) return alert("Please fill all fields");
 		try {
+			
 			const newUser = await signInWithEmailAndPassword(inputs.email, inputs.password);
+			
 			if (!newUser) return;
 			router.push("/");
+			
 		} catch (error: any) {
 			toast.error(error.message, { position: "top-center", autoClose: 3000, theme: "dark" });
 		}
 	};
+
 
 	useEffect(() => {
 		if (error) toast.error(error.message, { position: "top-center", autoClose: 3000, theme: "dark" });
